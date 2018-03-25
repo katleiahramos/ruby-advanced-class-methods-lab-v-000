@@ -34,13 +34,14 @@ class Song
   end
 
   def self.find_by_name(song_name)
-    #binding.pry
-    self.all.each do |song|
-      return song if song.name == song_name
-    end
+
+    self.all.detect {|song| song.name == song_name}
+    #self.all.each do |song|
+    #  return song if song.name == song_name
+    #end
     nil
-    #binding.pry
-    #self.all.select {|song| song.name == song_name}
+    
+    
   end
 
 
