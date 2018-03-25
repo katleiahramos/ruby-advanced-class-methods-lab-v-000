@@ -25,12 +25,11 @@ class Song
   end
 
   def self.create_by_name(name)
-  # My original code below. Realizing that the code could be completed 
+  # My original code below. Realizing that the code could be completed
   # song = self.new
   #  song.save
-  song = self.cretae
+    song = self.create
     song.name = name
-  
     song
   end
 
@@ -81,6 +80,6 @@ class Song
   end
 
   def self.destroy_all
-    @@all.clear    
+    @@all.clear
   end
 end
