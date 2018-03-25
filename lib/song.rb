@@ -36,21 +36,23 @@ class Song
   def self.find_by_name(song_name)
 
     self.all.detect {|song| song.name == song_name}
+    # note* tried to use .select, but using .detect -  Enumerable - is more efficient
     #self.all.each do |song|
     #  return song if song.name == song_name
     #end
-    nil
-    
-    
+  
   end
 
 
   def self.find_or_create_by_name(name)
-      if self.find_by_name(name) == nil
-        self.create_by_name(name)
-      else
-        self.find_by_name(name)
-      end
+
+    self.find_by_name || self.create_by_name
+    # Below is the orginal code, can be made more abstract by code above
+    #  if self.find_by_name(name) == nil
+    #    self.create_by_name(name)
+    #  else
+    #    self.find_by_name(name)
+    #  end
   end
 
 
